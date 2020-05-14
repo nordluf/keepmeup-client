@@ -40,8 +40,7 @@ test('Correct call', async () => {
   strictEqual(result, true)
 })
 test('Wrong call', async () => {
-  const result = keepmeup('checkWrongName', 'secretString')
-  await rejects(result)
+  await rejects(() => keepmeup('checkWrongName', 'secretString'))
 })
 test('Incorrect call', async () => {
   // @ts-ignore
