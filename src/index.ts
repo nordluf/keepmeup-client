@@ -5,9 +5,13 @@ export default function (check: string, secret: string) {
     throw new Error('Wrong usage, incorrect set of parameters.')
   }
 
-  const url = process.env.KEEPMEUP_URL ?? 'https://keepmeup.gth.wtf/check/'
+  const [host, port = '443'] = (process.env.KEEPMEUP_HOST ?? 'keepmeup.gth.wtf').split(':')
   const postData = `check=${check}&secret=${secret}`
   const options = {
+    protocol: 'https:',
+    host,
+    port,
+    path: '/check',
     method: 'POST',
     timeout: 5000,
     headers: {
@@ -17,7 +21,7 @@ export default function (check: string, secret: string) {
   }
 
   return new Promise((resolve, reject) => {
-    const req = request(url, options, (res) => {
+    const req = request(options, (res) => {
       let str = ''
       res.on('data', (chunk) => {
         str += chunk

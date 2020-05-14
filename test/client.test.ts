@@ -32,7 +32,7 @@ const server = createServer(
   }
 )
 
-process.env.KEEPMEUP_URL = 'https://localhost:8081/check/'
+process.env.KEEPMEUP_HOST = 'localhost:8081'
 
 beforeAll((done) => server.listen(8081, done))
 test('Correct call', async () => {
