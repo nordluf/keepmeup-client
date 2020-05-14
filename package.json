@@ -8,6 +8,7 @@
     "clean": "rm -rf ./dist",
     "build": "npm run clean && tsc",
     "lint": "standardx './src/**/*.ts' './test/**/*.ts'",
+    "releaseit": "release-it --ci",
     "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest"
   },
   "repository": {
@@ -20,10 +21,15 @@
   "bugs": {
     "url": "https://github.com/nordluf/keepmeup-client/issues"
   },
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/nordluf/keepmeup-client#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
+    "@release-it/bumper": "^1.0.5",
+    "@release-it/conventional-changelog": "^1.1.0",
     "@types/jest": "^25.2.2",
     "@types/node": "^12.12.39",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
