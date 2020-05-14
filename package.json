@@ -1,0 +1,73 @@
+{
+  "name": "keepmeup-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "pre-commit": "npm test && npm run lint && npm audit --prod",
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && tsc",
+    "lint": "standardx './src/**/*.ts' './test/**/*.ts'",
+    "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nordluf/keepmeup-client.git"
+  },
+  "keywords": [],
+  "author": "Evgeny Kruglov",
+  "license": "JSON",
+  "bugs": {
+    "url": "https://github.com/nordluf/keepmeup-client/issues"
+  },
+  "homepage": "https://github.com/nordluf/keepmeup-client#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/jest": "^25.2.2",
+    "@types/node": "^12.12.39",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
+    "standardx": "^5.0.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.5.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ],
+    "env": [
+      "jest"
+    ]
+  },
+  "engines": {
+    "node": ">= 12.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e",
+      "pre-commit": "npm run pre-commit"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
