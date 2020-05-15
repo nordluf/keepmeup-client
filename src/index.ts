@@ -1,6 +1,6 @@
 import { request } from 'https'
 
-export default function (check: string, secret: string) {
+export = function (check: string, secret: string) {
   if ((check?.length ?? 0) < 2 || (secret?.length ?? 0) < 2) {
     throw new Error('Wrong usage, incorrect set of parameters.')
   }
