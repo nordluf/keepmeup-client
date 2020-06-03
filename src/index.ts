@@ -1,8 +1,12 @@
 import { request } from 'https'
 
-export = function (check: string, secret: string) {
+export = function (check: string, secret: string | undefined, throwError = true) {
   if ((check?.length ?? 0) < 2 || (secret?.length ?? 0) < 2) {
-    throw new Error('Wrong usage, incorrect set of parameters.')
+    if (throwError) {
+      throw new Error('Wrong usage, incorrect set of parameters.')
+    } else {
+      return Promise.resolve()
+    }
   }
 
   const [host, port = '443'] = (process.env.KEEPMEUP_HOST ?? 'keepmeup.gth.wtf').split(':')

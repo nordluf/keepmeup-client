@@ -42,6 +42,10 @@ test('Correct call', async () => {
 test('Wrong call', async () => {
   await rejects(() => keepmeup('checkWrongName', 'secretString'))
 })
+test('Correct call without secret', async () => {
+  const result = await keepmeup('checkWrongName', undefined, false)
+  strictEqual(result, undefined)
+})
 test('Incorrect call', async () => {
   // @ts-ignore
   throws(keepmeup, { name: 'Error' })

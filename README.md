@@ -13,4 +13,5 @@ Usage:
 import client from 'keepmeup-client'
 
 await client('checkName', 'secretString')
+await client('checkName', secretVariable, false) // to not throw if secret is not defined
 ```
