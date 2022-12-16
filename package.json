@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "pre-commit": "npm test && npm run lint && npm audit --prod",
+    "pre-commit": "npm run build && npm test && npm run lint && npm audit --prod",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && tsc",
     "lint": "standardx './src/**/*.ts' './test/**/*.ts'",
@@ -40,7 +40,7 @@
     "supertest": "^4.0.2",
     "ts-jest": "^26.0.0",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.3"
+    "typescript": "^4.0.0"
   },
   "jest": {
     "preset": "ts-jest",
