@@ -9,7 +9,7 @@ export = function (check: string, secret: string | undefined, throwError = true)
     }
   }
 
-  const [host, port = '443'] = (process.env.KEEPMEUP_HOST ?? 'keepmeup.gth.wtf').split(':')
+  const [host, port = '443'] = (process.env.KEEPMEUP_HOST ?? 'keepmeup.jsbot.eu').split(':')
   const postData = `check=${check}&secret=${secret}`
   const options = {
     protocol: 'https:',
@@ -37,7 +37,7 @@ export = function (check: string, secret: string | undefined, throwError = true)
         }
       })
     }).on('error', (err) => {
-      console.error(`Error happened while sending keepmeup.gth.wtf check: ${err.message}`)
+      console.error(`Error happened while sending keepmeup.jsbot.eu.wtf check: ${err.message}`)
       reject(err.message)
     })
     req.write(postData)

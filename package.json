@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "pre-commit": "npm run build && npm test && npm run lint && npm audit --prod",
+    "pre-commit": "npm run build && npm test && npm run lint && npm audit",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && tsc",
     "lint": "standardx './src/**/*.ts' './test/**/*.ts'",
