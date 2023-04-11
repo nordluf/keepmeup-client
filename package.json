@@ -36,6 +36,7 @@
     "@typescript-eslint/parser": "^5.0.0",
     "husky": "^4.2.5",
     "jest": "^26.0.0",
+    "release-it": "^15.4.2",
     "standardx": "^5.0.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.0.0",
