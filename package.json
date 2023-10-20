@@ -34,6 +34,7 @@
     "@types/node": "^12.12.43",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "conventional-changelog-angular": "^7.0.0",
     "husky": "^4.2.5",
     "jest": "^26.0.0",
     "release-it": "^16.0.0",
