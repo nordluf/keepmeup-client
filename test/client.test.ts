@@ -34,7 +34,9 @@ const server = createServer(
 
 process.env.KEEPMEUP_HOST = 'localhost:8081'
 
-beforeAll((done) => server.listen(8081, done))
+beforeAll((done) => {
+  server.listen(8081, done)
+})
 test('Correct call', async () => {
   const result = await keepmeup('checkName', 'secretString')
   strictEqual(result, true)
@@ -54,4 +56,6 @@ test('Incorrect call', async () => {
   // @ts-ignore
   throws(() => keepmeup(1, 1), { name: 'Error' })
 })
-afterAll((done) => server.close(done))
+afterAll((done) => {
+  server.close(done)
+})

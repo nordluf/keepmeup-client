@@ -7,16 +7,11 @@
   },
   "plugins": {
     "@release-it/conventional-changelog": {
-      "preset": "angular"
-    },
-    "@release-it/bumper": {
-      "in": {
-        "file": "VERSION",
-        "type": "text/plain"
-      }
+      "preset": "angular",
+      "infile": false
     }
   },
   "hooks": {
-    "before:init": "git tag --list 'v*' | sort -V | tail -1 > VERSION"
+    "before:init": "npm pkg set version=$(echo \"$(npm pkg get version | tr -d \\\"; git tag --list 'v*' | cut -c2-)\" | sort -V | tail -1)"
   }
 }
