@@ -7,9 +7,9 @@
     "pre-commit": "npm run build && npm test && npm run lint && npm audit --audit-level high",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && tsc",
-    "lint": "standardx './src/**/*.ts' './test/**/*.ts'",
+    "lint": "standardx './src/**/*.ts' './test/**/*.js'",
     "releaseit": "release-it --ci",
-    "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest"
+    "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 mocha"
   },
   "repository": {
     "type": "git",
@@ -29,23 +29,16 @@
     "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^19.0.0",
     "@release-it/conventional-changelog": "^9.0.0",
-    "@types/jest": "^27.0.0",
     "@types/node": "^24.2.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "conventional-changelog-angular": "^7.0.0",
     "husky": "^4.2.5",
-    "jest": "^27.0.0",
+    "mocha": "^10.0.0",
     "release-it": "^17.0.0",
     "standardx": "^7.0.0",
     "supertest": "^7.0.0",
-    "ts-jest": "^27.0.0",
-    "ts-node": "^8.10.2",
     "typescript": "^4.0.0"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node"
   },
   "eslintConfig": {
     "rules": {
@@ -59,11 +52,11 @@
       "@typescript-eslint/eslint-plugin"
     ],
     "env": [
-      "jest"
+      "mocha"
     ]
   },
   "engines": {
-    "node": ">= 12.0.0",
+    "node": ">= 14.0.0",
     "npm": ">= 6.0.0"
   },
   "husky": {
